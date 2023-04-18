@@ -1,0 +1,47 @@
+<!-- Arquivo: templates/resultado.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Resultado</title>
+      <style>
+        body {
+        background-color:#FFFAFA;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center">RESULTADO</h1>
+        <h3 class="text-center mb-5">{{ usuario }}</h3>
+    {% if mensagem == "Texto cadastrado com sucesso." %}
+        <h2 class="text-success text-center">{{ mensagem }}</h2>
+        <h2 class="text-success text-center">{{ texto }}</h2>
+    {% else %}  
+        <h2 class="text-danger text-center">{{ mensagem }}</h2>
+        <h2 class="text-danger text-center">{{ texto }}</h2>
+    {% endif %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>QRCODE</th>
+            <th>DATA</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+              <td>{{ registro[1] }}</td>
+              <td>{{ registro[0] }}</td>
+              <td>{{ registro[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
