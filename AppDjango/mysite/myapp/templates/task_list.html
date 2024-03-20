@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST" id="task-form">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Task title" required>
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
